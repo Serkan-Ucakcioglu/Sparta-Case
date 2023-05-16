@@ -4,7 +4,7 @@ import {
   Route,
 } from "react-router-dom";
 import App from "../App";
-import Home from "../Components/Home";
+import Home from "../Components/Home.jsx";
 
 export const router = createHashRouter(
   createRoutesFromElements(
