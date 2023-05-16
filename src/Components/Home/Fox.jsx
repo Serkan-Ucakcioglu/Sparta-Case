@@ -5,7 +5,7 @@ function Fox() {
   const { img, images } = useData();
   return (
     <>
-      <div className="fox shadow hover:shadow-2xl flex h-[290px] flex-col items-center border border-gray-300 p-2 rounded hover:border-gray-400">
+      <div className="fox shadow hover:shadow-2xl flex h-[290px] flex-col items-center  p-2 rounded-lg hover:border-gray-400">
         <img src={img?.image} alt="images" className="w-[260px] h-[220px]" />
         <button
           onClick={images}
