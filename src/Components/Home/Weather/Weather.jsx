@@ -17,13 +17,12 @@ function Weather() {
       setIndex((prev) => prev - 1);
     }
   };
-  console.log(weather?.result?.length);
 
   return (
     <>
-      <div>
-        <h1>Ankara</h1>
-        <div className="flex flex-col">
+      <div className="border border-gray-600 p-6  rounded shadow mt-8 ">
+        <h1 className="text-2xl font-bold text-center">Ankara</h1>
+        <div className="flex flex-col gap-2 items-center">
           {weather?.result?.map((weath, i) => {
             return <WeatherCard i={i} weath={weath} index={index} />;
           })}
