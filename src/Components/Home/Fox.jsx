@@ -1,10 +1,10 @@
-import useData from "../hooks/useData";
+import React from "react";
+import useData from "../../hooks/useData";
 
-function Home() {
-  const { stoa, img, images, stoas } = useData();
-
+function Fox() {
+  const { img, images } = useData();
   return (
-    <div className="w-full flex  flex-col items-center justify-center">
+    <>
       <div className="fox flex flex-col items-center border border-gray-300 p-3">
         <img src={img?.image} alt="images" className="w-[250px] h-[200px]" />
         <button
@@ -14,8 +14,8 @@ function Home() {
           Changed
         </button>
       </div>
-    </div>
+    </>
   );
 }
 
-export default Home;
+export default Fox;
