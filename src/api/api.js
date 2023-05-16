@@ -11,3 +11,12 @@ export const getStoa = async () => {
   );
   return data;
 };
+
+export const getWeather = async () => {
+  const { data } = await axios.get(import.meta.env.VITE_API_URL, {
+    headers: {
+      Authorization: import.meta.env.VITE_API_KEY,
+    },
+  });
+  return data;
+};

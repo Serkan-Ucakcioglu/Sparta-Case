@@ -5,7 +5,7 @@ function Fox() {
   const { img, images } = useData();
   return (
     <>
-      <div className="fox flex flex-col items-center border border-gray-300 p-3">
+      <div className="fox flex h-[264px] flex-col items-center border border-gray-300 p-2 rounded">
         <img src={img?.image} alt="images" className="w-[250px] h-[200px]" />
         <button
           onClick={images}
