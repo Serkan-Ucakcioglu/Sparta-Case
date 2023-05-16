@@ -27,7 +27,7 @@ function Weather() {
             return <WeatherCard i={i} weath={weath} index={index} />;
           })}
         </div>
-        <div className="flex gap-x-3">
+        <div className="flex justify-center items-center gap-x-3">
           <button
             onClick={prevDay}
             disabled={index == 0}
