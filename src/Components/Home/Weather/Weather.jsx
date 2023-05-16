@@ -17,7 +17,6 @@ function Weather() {
       setIndex((prev) => prev - 1);
     }
   };
-
   return (
     <>
       <div className="border shadow hover:shadow-2xl p-6 rounded-lg shadow ">
