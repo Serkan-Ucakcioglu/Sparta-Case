@@ -6,7 +6,7 @@ import ArrowRight from "../../assets/ArrowRight";
 
 function Home() {
   return (
-    <div className="w-full flex mt-8 flex-col items-center justify-center">
+    <div className="w-full flex mt-10 flex-col items-center justify-center">
       <div className="w-[900px] flex items-center justify-between">
         <Fox />
         <Weather />
