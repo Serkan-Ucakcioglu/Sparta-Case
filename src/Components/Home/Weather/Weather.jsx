@@ -17,9 +17,7 @@ function Weather() {
       setIndex((prev) => prev - 1);
     }
   };
-  console.log(weather.result.length);
-
-  console.log(index);
+  console.log(weather?.result?.length);
 
   return (
     <>
