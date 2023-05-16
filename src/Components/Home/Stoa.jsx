@@ -14,7 +14,7 @@ function Stoa() {
           onClick={stoas}
           className="border mt-4 border-blue-500 bg-blue-500 text-white p-2 w-[70px] text-sm rounded mt-2 hover:bg-blue-700"
         >
-          değiştir
+          Changed
         </button>
       </div>
     </>
