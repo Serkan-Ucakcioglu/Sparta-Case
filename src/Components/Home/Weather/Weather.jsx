@@ -20,7 +20,7 @@ function Weather() {
 
   return (
     <>
-      <div className="border shadow hover:shadow-2xl border-gray-300 p-6 rounded shadow">
+      <div className="border shadow hover:shadow-2xl border-gray-300 p-6 rounded shadow hover:border-gray-400">
         <h1 className="text-2xl font-bold text-center">Ankara</h1>
         <div className="flex flex-col items-center">
           {weather?.result?.map((weath, i) => {
