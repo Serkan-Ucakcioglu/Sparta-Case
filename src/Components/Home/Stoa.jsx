@@ -5,7 +5,7 @@ function Stoa() {
   const { stoa, stoas } = useData();
   return (
     <>
-      <div className="flex flex-col items-center">
+      <div className="flex flex-col items-center min-h-[280px]">
         <div className="bg-white w-[300px] rounded-lg p-6 shadow-md hover:shadow-2xl">
           <span className="text-black font-bold">{stoa?.author}:</span>
           <p className="text-gray-800">{stoa?.quote}</p>
