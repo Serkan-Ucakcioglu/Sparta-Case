@@ -23,7 +23,7 @@ export const getWeather = async () => {
 
 export const getUsom = async (page) => {
   const { data } = await axios.get(
-    `${import.meta.env.VITE_API_USOM}/address/index?page=${page}&count=10`
+    `${import.meta.env.VITE_API_USOM}/address/index?page=${page}`
   );
   return data;
 };

@@ -13,6 +13,7 @@ function Usom() {
 
   useEffect(() => {
     getUsoms();
+    document.title = "Usom List";
   }, [page]);
   return (
     <div className="w-full flex justify-center mt-8">
