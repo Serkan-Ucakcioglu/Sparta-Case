@@ -20,3 +20,10 @@ export const getWeather = async () => {
   });
   return data;
 };
+
+export const getUsom = async (page) => {
+  const { data } = await axios.get(
+    `https://www.usom.gov.tr/api/address/index?page=${page}`
+  );
+  return data;
+};
