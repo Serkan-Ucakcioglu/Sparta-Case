@@ -12,6 +12,7 @@ const UsomTable = ({ data }) => {
     const data = await usomDesc();
     setDesc(data?.models);
   };
+
   useEffect(() => {
     if (select !== "") {
       const filtered = data?.filter((item) => item?.url?.endsWith(select));
