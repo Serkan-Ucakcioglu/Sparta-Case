@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import { usomDesc } from "../../api/api";
 import Loader from "../../assets/Loader";
 
@@ -16,7 +16,9 @@ const UsomTable = ({ data }) => {
 
   useEffect(() => {
     if (select !== "") {
-      const filtered = data?.filter((item) => item?.url?.endsWith(select));
+      const filtered = useMemo(() => {
+        data?.filter((item) => item?.url?.endsWith(select));
+      }, [select, data]);
       setFilteredData(filtered);
     } else {
       setFilteredData(data);
