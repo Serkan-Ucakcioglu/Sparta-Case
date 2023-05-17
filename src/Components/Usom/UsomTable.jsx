@@ -1,6 +1,5 @@
-import React, { useEffect, useMemo, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { usomDesc } from "../../api/api";
-import Loader from "../../assets/Loader";
 
 const columns = ["Domain", "Date", "Description", "Detail"];
 
