@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { usomDesc } from "../../api/api";
 
 const columns = ["Domain", "Date", "Description", "Detail"];
+const selectbox = [".com", ".xyz", ".net", ".info"];
 
 const UsomTable = ({ data }) => {
   const [desc, setDesc] = useState();
@@ -42,10 +43,9 @@ const UsomTable = ({ data }) => {
               <option value="" selected>
                 Genel
               </option>
-              <option value=".com">.com</option>
-              <option value=".xyz">.xyz</option>
-              <option value=".net">.net</option>
-              <option value=".info">.info</option>
+              {selectbox?.map((option) => {
+                return <option value={option}>{option}</option>;
+              })}
             </select>
           </tr>
         </thead>
@@ -81,6 +81,7 @@ const UsomTable = ({ data }) => {
               {select} Uzantılı domain bulunamadı.
             </td>
           )}
+          <div>genişlet</div>
         </tbody>
       </table>
     </div>
