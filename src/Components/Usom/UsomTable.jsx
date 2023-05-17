@@ -16,9 +16,7 @@ const UsomTable = ({ data }) => {
 
   useEffect(() => {
     if (select !== "") {
-      const filtered = useMemo(() => {
-        data?.filter((item) => item?.url?.endsWith(select));
-      }, [select, data]);
+      const filtered = data?.filter((item) => item?.url?.includes(select));
       setFilteredData(filtered);
     } else {
       setFilteredData(data);
@@ -29,9 +27,6 @@ const UsomTable = ({ data }) => {
     usomDescriptions();
   }, []);
 
-  if (!filteredData?.length) {
-    return <Loader />;
-  }
   return (
     <div className="bg-white shadow-md rounded my-6">
       <table className="min-w-[500px] max-w-[1500px] w-full table-auto">
@@ -56,31 +51,37 @@ const UsomTable = ({ data }) => {
           </tr>
         </thead>
         <tbody className="text-gray-600 text-sm font-light">
-          {filteredData?.map((item) => (
-            <tr
-              key={item?.id}
-              className="border-b p-2 border-gray-200 hover:bg-gray-100"
-            >
-              <td className="py-3 px-6 text-left font-extrabold font-mono">
-                {item?.url}
-              </td>
-              <td className="py-3 px-6 text-left text-medium font-semibold">
-                {item?.date}
-              </td>
-              <td className="py-3 px-6 text-left text font-serif">
-                {desc
-                  ?.filter((usom) => usom?.id === item?.desc)
-                  ?.map((usom) => {
-                    return <>{usom?.tr_desc}</>;
-                  })}
-              </td>
-              <td className="py-3 px-6 text-left text-medium font-semibold">
-                <button className="border border-blue-500 bg-blue-500 rounded hover:bg-blue-700 text-white p-2">
-                  Detail
-                </button>
-              </td>
-            </tr>
-          ))}
+          {!!filteredData?.length ? (
+            filteredData?.map((item) => (
+              <tr
+                key={item?.id}
+                className="border-b p-2 border-gray-200 hover:bg-gray-100"
+              >
+                <td className="py-3 px-6 text-left font-extrabold font-mono">
+                  {item?.url}
+                </td>
+                <td className="py-3 px-6 text-left text-medium font-semibold">
+                  {item?.date}
+                </td>
+                <td className="py-3 px-6 text-left text font-serif">
+                  {desc
+                    ?.filter((usom) => usom?.id === item?.desc)
+                    ?.map((usom) => {
+                      return <>{usom?.tr_desc}</>;
+                    })}
+                </td>
+                <td className="py-3 px-6 text-left text-medium font-semibold">
+                  <button className="border border-blue-500 bg-blue-500 rounded hover:bg-blue-700 text-white p-2">
+                    Detail
+                  </button>
+                </td>
+              </tr>
+            ))
+          ) : (
+            <td className="px-6 p-2 text-2xl font-bold text-center">
+              {select} Uzantılı domain bulunamadı.
+            </td>
+          )}
         </tbody>
       </table>
     </div>
