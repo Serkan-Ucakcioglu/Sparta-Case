@@ -7,11 +7,17 @@ const selectbox = [".com", ".xyz", ".net", ".info"];
 const UsomTable = ({ data }) => {
   const [desc, setDesc] = useState();
   const [select, setSelect] = useState("");
-  const [filteredData, setFilteredData] = useState();
+  const [filteredData, setFilteredData] = useState(data);
+  const [show, setShow] = useState(true);
 
   const usomDescriptions = async () => {
     const data = await usomDesc();
     setDesc(data?.models);
+  };
+
+  const toggleExpansion = () => {
+    setShow((prev) => !prev);
+    setFilteredData(show ? data : data?.slice(0, 10));
   };
 
   useEffect(() => {
@@ -24,6 +30,7 @@ const UsomTable = ({ data }) => {
   }, [data, select]);
 
   useEffect(() => {
+    setFilteredData(!show ? data : data?.filter((item, i) => i <= 10));
     usomDescriptions();
   }, []);
 
@@ -81,7 +88,20 @@ const UsomTable = ({ data }) => {
               {select} Uzantılı domain bulunamadı.
             </td>
           )}
-          <div>genişlet</div>
+          <tfoot>
+            <tr>
+              <td colSpan="2" className="text-center px-5 py-2">
+                {select == "" && (
+                  <button
+                    onClick={toggleExpansion}
+                    className="border border-blue-500 bg-blue-500 rounded hover:bg-blue-700 text-white p-1"
+                  >
+                    {show ? "Genişlet" : "Daralt"}
+                  </button>
+                )}
+              </td>
+            </tr>
+          </tfoot>
         </tbody>
       </table>
     </div>
