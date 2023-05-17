@@ -5,10 +5,21 @@ const columns = ["Domain", "Date", "Description"];
 
 const UsomTable = ({ data }) => {
   const [desc, setDesc] = useState();
+  const [select, setSelect] = useState("");
+  const [filteredData, setFilteredData] = useState();
+
   const usomDescriptions = async () => {
     const data = await usomDesc();
     setDesc(data?.models);
   };
+  useEffect(() => {
+    if (select !== "") {
+      const filtered = data?.filter((item) => item?.url?.endsWith(select));
+      setFilteredData(filtered);
+    } else {
+      setFilteredData(data);
+    }
+  }, [data, select]);
 
   useEffect(() => {
     usomDescriptions();
@@ -21,12 +32,21 @@ const UsomTable = ({ data }) => {
             {columns?.map((column) => {
               return <th className="py-3 px-6 text-left ml-5">{column}</th>;
             })}
+            <select value={select} onChange={(e) => setSelect(e.target.value)}>
+              <option value="" selected>
+                Seçim Yap
+              </option>
+              <option value=".com">.com</option>
+              <option value=".xyz">.xyz</option>
+              <option value=".net">.net</option>
+              <option value=".info">.info</option>
+            </select>
           </tr>
         </thead>
         <tbody className="text-gray-600 text-sm font-light">
-          {data?.map((item) => (
+          {filteredData?.map((item) => (
             <tr
-              key={item.id}
+              key={item?.id}
               className="border-b border-gray-200 hover:bg-gray-100"
             >
               <td className="py-3 px-6 text-left font-extrabold font-mono">

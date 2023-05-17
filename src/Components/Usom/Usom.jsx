@@ -8,7 +8,7 @@ function Usom() {
 
   const getUsoms = async () => {
     const data = await getUsom(0);
-    setUsom(data);
+    setUsom(data?.models);
   };
 
   useEffect(() => {
@@ -17,7 +17,7 @@ function Usom() {
   return (
     <div className="w-full flex justify-center mt-8">
       <div className="min-w-[500px]">
-        <UsomTable data={usom?.models} />
+        <UsomTable data={usom} />
       </div>
     </div>
   );
