@@ -1,6 +1,16 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { usomDesc } from "../../api/api";
 
 const UsomTable = ({ data }) => {
+  const [desc, setDesc] = useState();
+  const usomDescriptions = async () => {
+    const data = await usomDesc();
+    setDesc(data?.models);
+  };
+
+  useEffect(() => {
+    usomDescriptions();
+  }, []);
   const columns = ["Domain", "Date", "Description"];
   return (
     <div className="bg-white shadow-md rounded my-6">
@@ -8,7 +18,7 @@ const UsomTable = ({ data }) => {
         <thead>
           <tr className="bg-gray-200 text-gray-600 uppercase text-sm leading-normal">
             {columns?.map((column) => {
-              return <th className="py-3 px-6 text-left">{column}</th>;
+              return <th className="py-3 px-6 text-left ml-5">{column}</th>;
             })}
           </tr>
         </thead>
@@ -20,7 +30,13 @@ const UsomTable = ({ data }) => {
             >
               <td className="py-3 px-6 text-left">{item?.url}</td>
               <td className="py-3 px-6 text-left">{item?.date}</td>
-              <td className="py-3 px-6 text-left">{item?.age}</td>
+              <td className="py-3 px-6 text-left">
+                {desc
+                  ?.filter((usom) => usom?.id === item?.desc)
+                  ?.map((usom) => {
+                    return <td className="py-3">{usom?.tr_desc}</td>;
+                  })}
+              </td>
             </tr>
           ))}
         </tbody>

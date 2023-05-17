@@ -31,7 +31,7 @@ export const getUsom = async (page) => {
 export const usomDesc = async () => {
   const { data } = await axios.get(`${
     import.meta.env.VITE_API_USOM
-  }/api/address-description/index
+  }/address-description/index
   `);
   return data;
 };

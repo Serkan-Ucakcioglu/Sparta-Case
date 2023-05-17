@@ -10,13 +10,13 @@ function Usom() {
     const data = await getUsom(0);
     setUsom(data);
   };
-  console.log(usom, "usom");
+
   useEffect(() => {
     getUsoms();
   }, [page]);
   return (
     <div className="w-full flex justify-center mt-8">
-      <div className="w-[700px]">
+      <div className="min-w-[500px]">
         <UsomTable data={usom?.models} />
       </div>
     </div>
