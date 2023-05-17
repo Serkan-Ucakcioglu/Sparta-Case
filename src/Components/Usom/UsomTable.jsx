@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { usomDesc } from "../../api/api";
 
+const columns = ["Domain", "Date", "Description"];
+
 const UsomTable = ({ data }) => {
   const [desc, setDesc] = useState();
   const usomDescriptions = async () => {
@@ -11,7 +13,6 @@ const UsomTable = ({ data }) => {
   useEffect(() => {
     usomDescriptions();
   }, []);
-  const columns = ["Domain", "Date", "Description"];
   return (
     <div className="bg-white shadow-md rounded my-6">
       <table className="min-w-max w-full table-auto">
