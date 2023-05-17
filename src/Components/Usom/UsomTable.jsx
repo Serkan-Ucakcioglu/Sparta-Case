@@ -28,7 +28,7 @@ const UsomTable = ({ data }) => {
               key={item.id}
               className="border-b border-gray-200 hover:bg-gray-100"
             >
-              <td className="py-3 px-6 text-left font-bold font-mono">
+              <td className="py-3 px-6 text-left font-extrabold font-mono">
                 {item?.url}
               </td>
               <td className="py-3 px-6 text-left text-medium font-semibold">
