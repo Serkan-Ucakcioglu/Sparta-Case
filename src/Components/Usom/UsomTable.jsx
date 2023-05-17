@@ -28,9 +28,13 @@ const UsomTable = ({ data }) => {
               key={item.id}
               className="border-b border-gray-200 hover:bg-gray-100"
             >
-              <td className="py-3 px-6 text-left">{item?.url}</td>
-              <td className="py-3 px-6 text-left">{item?.date}</td>
-              <td className="py-3 px-6 text-left">
+              <td className="py-3 px-6 text-left font-bold font-mono">
+                {item?.url}
+              </td>
+              <td className="py-3 px-6 text-left text-medium font-semibold">
+                {item?.date}
+              </td>
+              <td className="py-3 px-6 text-left text font-serif">
                 {desc
                   ?.filter((usom) => usom?.id === item?.desc)
                   ?.map((usom) => {
