@@ -17,7 +17,7 @@ function Usom() {
   return (
     <div className="w-full flex justify-center mt-8">
       <div className="min-w-[500px]">
-        <UsomTable data={usom} />
+        {usom?.length > 1 && <UsomTable data={usom} />}
       </div>
     </div>
   );
