@@ -37,6 +37,7 @@ const UsomTable = ({ data }) => {
   return (
     <div className="bg-white shadow-md rounded my-6">
       <table className="min-w-[500px] max-w-[1500px] w-full table-auto">
+        {/* Table Head*/}
         <thead>
           <tr className="bg-gray-200 text-gray-600 uppercase text-sm leading-normal">
             {columns?.map((column) => {
@@ -56,6 +57,7 @@ const UsomTable = ({ data }) => {
             </select>
           </tr>
         </thead>
+        {/* Table Body*/}
         <tbody className="text-gray-600 text-sm font-light">
           {!!filteredData?.length ? (
             filteredData?.map((item) => (
@@ -88,6 +90,7 @@ const UsomTable = ({ data }) => {
               {select} Uzantılı domain bulunamadı.
             </td>
           )}
+          {/* Table Footer*/}
           <tfoot>
             <tr>
               <td colSpan="2" className="text-center px-5 py-2">
