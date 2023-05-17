@@ -10,16 +10,6 @@ const UsomTable = ({ data }) => {
   const [filteredData, setFilteredData] = useState(data);
   const [show, setShow] = useState(true);
 
-  const usomDescriptions = async () => {
-    const data = await usomDesc();
-    setDesc(data?.models);
-  };
-
-  const toggleExpansion = () => {
-    setShow((prev) => !prev);
-    setFilteredData(show ? data : data?.slice(0, 10));
-  };
-
   useEffect(() => {
     if (select !== "") {
       const filtered = data?.filter((item) => item?.url?.includes(select));
@@ -33,6 +23,16 @@ const UsomTable = ({ data }) => {
     setFilteredData(!show ? data : data?.filter((item, i) => i <= 10));
     usomDescriptions();
   }, []);
+
+  const usomDescriptions = async () => {
+    const data = await usomDesc();
+    setDesc(data?.models);
+  };
+
+  const toggleExpansion = () => {
+    setShow((prev) => !prev);
+    setFilteredData(show ? data : data?.slice(0, 10));
+  };
 
   return (
     <div className="bg-white shadow-md rounded my-6">
