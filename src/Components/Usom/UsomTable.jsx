@@ -80,11 +80,6 @@ const UsomTable = ({ data }) => {
                       return <>{usom?.tr_desc}</>;
                     })}
                 </td>
-                <td className="py-3 px-6 text-left text-medium font-semibold">
-                  <button className="border border-blue-500 bg-blue-500 rounded hover:bg-blue-700 text-white p-2">
-                    Detail
-                  </button>
-                </td>
               </tr>
             ))
           ) : (
