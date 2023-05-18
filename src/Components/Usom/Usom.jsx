@@ -7,11 +7,11 @@ function Usom() {
   const [usom, setUsom] = useState();
 
   const getUsoms = async () => {
-    const data = await getUsom(0);
+    const data = await getUsom(page);
     setUsom(data?.models);
   };
   useEffect(() => {
-    getUsoms();
+    getUsoms(page);
     document.title = "Usom List";
   }, [page]);
   return (
