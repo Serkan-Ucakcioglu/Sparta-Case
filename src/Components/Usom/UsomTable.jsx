@@ -22,7 +22,7 @@ const UsomTable = ({ data }) => {
   useEffect(() => {
     setFilteredData(!show ? data : data?.filter((item, i) => i <= 10));
     usomDescriptions();
-  }, []);
+  }, [data]);
 
   const usomDescriptions = async () => {
     const data = await usomDesc();
