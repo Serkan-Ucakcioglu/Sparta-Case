@@ -10,7 +10,6 @@ function Usom() {
     const data = await getUsom(0);
     setUsom(data?.models);
   };
-
   useEffect(() => {
     getUsoms();
     document.title = "Usom List";
