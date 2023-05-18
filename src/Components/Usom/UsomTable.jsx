@@ -43,18 +43,20 @@ const UsomTable = ({ data }) => {
             {columns?.map((column) => {
               return <th className="py-3 px-6 text-left ml-5">{column}</th>;
             })}
-            <select
-              className="bg-gray-200 border-2 border-white text-gray-600 mt-2 p-1 rounded mr-2"
-              value={select}
-              onChange={(e) => setSelect(e.target.value)}
-            >
-              <option value="" selected>
-                Genel
-              </option>
-              {selectbox?.map((option) => {
-                return <option value={option}>{option}</option>;
-              })}
-            </select>
+            <td className="mb-1">
+              <select
+                className="bg-gray-200 border-2 border-white text-gray-600 mt-2 p-1 rounded mr-2"
+                value={select}
+                onChange={(e) => setSelect(e.target.value)}
+              >
+                <option value="" selected>
+                  Genel
+                </option>
+                {selectbox?.map((option) => {
+                  return <option value={option}>{option}</option>;
+                })}
+              </select>
+            </td>
           </tr>
         </thead>
         {/* Table Body*/}
@@ -91,21 +93,21 @@ const UsomTable = ({ data }) => {
             </td>
           )}
           {/* Table Footer*/}
-          <tfoot>
-            <tr>
-              <td colSpan="2" className="text-center px-5 py-2">
-                {select == "" && (
-                  <button
-                    onClick={toggleExpansion}
-                    className="border border-blue-500 bg-blue-500 rounded hover:bg-blue-700 text-white p-1"
-                  >
-                    {show ? "Genişlet" : "Daralt"}
-                  </button>
-                )}
-              </td>
-            </tr>
-          </tfoot>
         </tbody>
+        <tfoot>
+          <tr>
+            <td colSpan="2" className="text-center py-2">
+              {select == "" && (
+                <button
+                  onClick={toggleExpansion}
+                  className="border border-blue-500 bg-blue-500 rounded hover:bg-blue-700 text-white p-1"
+                >
+                  {show ? "Genişlet" : "Daralt"}
+                </button>
+              )}
+            </td>
+          </tr>
+        </tfoot>
       </table>
     </div>
   );
